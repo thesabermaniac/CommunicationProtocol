@@ -100,7 +100,7 @@ public class Client {
      */
     private void receiveLostPackets(){
         Packet packet = new Packet();
-        while (!packet.data.equals("Complete")){
+        while (!(packet.data.equals("Complete") && packet.index == -1)){
             try {
                 packet = (Packet) input.readObject();
                 if(packet.index >= 0) {
